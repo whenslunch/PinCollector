@@ -1,0 +1,8 @@
+{
+  "appId": "com.pincollector.app",
+  "appName": "PinCollector",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "build",
+  "cordova": {}
+}
