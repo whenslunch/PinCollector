@@ -2,12 +2,9 @@ import { IonContent, IonHeader, IonItem, IonLabel, IonList, IonPage, IonTitle, I
 import React, { useState } from 'react';
 
 interface Pin {
-  Partitionkey: string;
-  Rowkey: string;
-  Timestamp: string;
-  City: string;
-  Country: string;
-  Image: string;
+  city: string;
+  country: string;
+  image: string;
 }
 
 const Home: React.FC = () => {
@@ -15,11 +12,11 @@ const Home: React.FC = () => {
   const [collection, setCollection] = useState<Pin[]>([]);
 
   useIonViewWillEnter(async () => {
-    const result = await fetch('https://collectionsappsa.table.core.windows.net/Collections?sv=2019-02-02&ss=bfqt&srt=sco&sp=rwdlacup&se=2020-01-01T14:27:59Z&st=2019-12-21T06:27:59Z&spr=https&sig=2F42cYKvNvTgH%2BpOPCMoadR7tAF9sUPNe0%2Br05jo89Y%3D', {
-      headers: { 'Accept': 'application/json;odata=nometadata'}
+    const result = await fetch('https://collections-svc.azurewebsites.net/api/GetAllItems', {
+      headers: { 'Accept': 'application/json'}
     });
     const data = await result.json();
-    setCollection(data.value);
+    setCollection(data);
   
   });
 
@@ -43,11 +40,11 @@ const CollectionItem: React.FC<{ pin: Pin }> = ({ pin }) => {
   return (
     <IonItem >
       <IonThumbnail slot="start">
-        <img src={pin.Image+'?sv=2019-02-02&ss=bfqt&srt=sco&sp=rwdlacup&se=2020-01-01T14:27:59Z&st=2019-12-21T06:27:59Z&spr=https&sig=2F42cYKvNvTgH%2BpOPCMoadR7tAF9sUPNe0%2Br05jo89Y%3D'} />
+        <img src={pin.image+'?sv=2019-02-02&ss=bfqt&srt=sco&sp=rwdlacup&se=2020-01-01T14:27:59Z&st=2019-12-21T06:27:59Z&spr=https&sig=2F42cYKvNvTgH%2BpOPCMoadR7tAF9sUPNe0%2Br05jo89Y%3D'} />
       </IonThumbnail>
       <IonLabel>
-        <h2>{pin.City}</h2>
-        <p>{pin.Country}</p>
+        <h2>{pin.city}</h2>
+        <p>{pin.country}</p>
       </IonLabel>
     </IonItem>
   );
