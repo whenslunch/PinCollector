@@ -21,7 +21,6 @@ const Home: React.FC = () => {
     });
     const data = await result.json();
     setCollection(data);
-  
   });
 
   return (
@@ -45,7 +44,7 @@ const CollectionItem: React.FC<{ pin: Pin }> = ({ pin }) => {
    return (
     <IonItem >
       <IonThumbnail slot="start">
-        <img src={'https://collections-svc-dn.azurewebsites.net/api/GetImage/'.concat(pin.itemNumber)} />
+        <img src={'https://collections-svc-dn.azurewebsites.net/api/GetImage/'.concat(pin.itemNumber)} /> 
       </IonThumbnail>
       <IonLabel>
         <h2>{pin.city}</h2>
