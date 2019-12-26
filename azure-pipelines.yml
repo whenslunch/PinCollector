@@ -13,6 +13,12 @@ steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
 
+- script: npm install
+  displayName: 'Install all npm packages'
+
+- script: ionic build
+  displayName: 'Build Ionic '
+
 - script: |
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
