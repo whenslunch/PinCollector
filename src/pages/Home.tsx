@@ -42,13 +42,10 @@ const Home: React.FC = () => {
 
 const CollectionItem: React.FC<{ pin: Pin }> = ({ pin }) => {
 
-  const imagesource = 'https://collections-svc-dn.azurewebsites.net/api/GetImage/'.concat(pin.itemNumber);
-  console.log( "CollectionItem: request image ", imagesource);
-
-  return (
+   return (
     <IonItem >
       <IonThumbnail slot="start">
-        <img src={imagesource} />
+        <img src={'https://collections-svc-dn.azurewebsites.net/api/GetImage/'.concat(pin.itemNumber)} />
       </IonThumbnail>
       <IonLabel>
         <h2>{pin.city}</h2>
