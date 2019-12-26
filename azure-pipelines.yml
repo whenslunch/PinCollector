@@ -13,10 +13,10 @@ steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
 
-- script: npm install
+- script: sudo npm install -g
   displayName: 'Install all npm packages'
 
-- script: ionic build
+- script: ./node_packages/ionic/bin/ionic build
   displayName: 'Build Ionic '
 
 - script: |
