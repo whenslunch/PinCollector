@@ -41,7 +41,9 @@ const Home: React.FC = () => {
 
 const CollectionItem: React.FC<{ pin: Pin }> = ({ pin }) => {
 
-   return (
+  console.log("In CollectionItem");
+
+  return (
     <IonItem >
       <IonThumbnail slot="start">
         <img src={'https://collections-svc-dn.azurewebsites.net/api/GetImage/'.concat(pin.itemNumber)} /> 
