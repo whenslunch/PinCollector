@@ -16,7 +16,7 @@ steps:
 - script: sudo npm install -g
   displayName: 'Install all npm packages'
 
-- script: ./node_packages/ionic/bin/ionic build
+- script: npx ionic build
   displayName: 'Build Ionic '
 
 - script: |
